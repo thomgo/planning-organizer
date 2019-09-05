@@ -7,6 +7,18 @@ from view.conferenceView import conferenceView
 # Main file acting like a routing system
 # Call the right method from the view, depending on user input
 
+def speaker_actions():
+    action = ""
+    while action != "r":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Gestion de la base intervants")
+        print("Que souhaitez vous faire ? (n: nouveau, s: suppression, r: retour)")
+        action = input(": ")
+        if action == "n":
+            pass
+        elif action == "s":
+            pass
+
 # Simple intro for the app
 os.system('cls' if os.name == 'nt' else 'clear')
 print("Plan&Go vous organisez, nous planifions")
@@ -18,10 +30,13 @@ time.sleep(3)
 action = ""
 # while the user does not chose to leave the program
 while action != 'q':
-    view = conferenceView()
     os.system('cls' if os.name == 'nt' else 'clear')
-    view.home()
+    print("Que souhaitez vous gérez ? (c: conférences, i: intervenants, q: quitter)")
     action = input(": ")
+    if action == "c":
+        pass
+    elif action == "i":
+        speaker_actions()
 
 # Leave the program
 print("A bientôt sur Plan&Go")
