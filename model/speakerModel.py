@@ -17,7 +17,6 @@ class speakerModel():
             speakers[key] = Speaker(speaker)
         return speakers
 
-
     def add_speaker(self, speaker):
         sql = """insert into speaker (firstname, lastname, job, description)
                  values(%s, %s, %s, %s)"""

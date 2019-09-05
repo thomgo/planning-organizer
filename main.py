@@ -24,6 +24,22 @@ def speaker_actions():
             view.delete_speaker()
         time.sleep(3)
 
+def conference_actions():
+    view = conferenceView()
+    action = ""
+    while action != "r":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Gestion des interventions au programme")
+        print("Que souhaitez vous faire ? (l: liste, n: nouvelle, s: suppression, r: retour)")
+        action = input(": ")
+        if action == "l":
+            view.show_conferences()
+        elif action == "n":
+            view.new_conference()
+        elif action == "s":
+            view.delete_conference()
+        time.sleep(3)
+
 # Simple intro for the app
 os.system('cls' if os.name == 'nt' else 'clear')
 print("Plan&Go vous organisez, nous planifions")
@@ -39,7 +55,7 @@ while action != 'q':
     print("Que souhaitez vous gérez ? (c: conférences, i: intervenants, q: quitter)")
     action = input(": ")
     if action == "c":
-        pass
+        conference_actions()
     elif action == "i":
         speaker_actions()
 

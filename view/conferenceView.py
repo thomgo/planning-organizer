@@ -8,10 +8,16 @@ class conferenceView():
     def __init__(self):
         pass
 
-    def home(self):
+    def show_conferences(self):
         model = conferenceModel()
         conferences = model.get_conferences()
         if conferences:
             print("Voici les conférence")
         else:
             print("Nous n'avons aucune conférence de prévue pour l'instant")
+
+    def new_conference(self):
+        pass
+
+    def delete_conference(self):
+        pass
