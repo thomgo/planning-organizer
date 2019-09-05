@@ -18,6 +18,7 @@ class speakerView():
         else:
             print("pas d'intervenants")
         input("Appuyez sur une touche pour continuer")
+
     def new_speaker(self):
         model = speakerModel()
         data = {}
@@ -28,3 +29,9 @@ class speakerView():
         speaker = Speaker(data)
         if model.add_speaker(speaker):
             print("Le nouvel intervenant a bien été enregistré")
+
+    def delete_speaker(self):
+        model = speakerModel()
+        id = input("L'id de l'intervenant à supprimer : ")
+        if model.delete_speaker(id):
+            print("L'intervenant a bien été supprimé")

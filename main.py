@@ -21,7 +21,7 @@ def speaker_actions():
         elif action == "n":
             view.new_speaker()
         elif action == "s":
-            pass
+            view.delete_speaker()
         time.sleep(3)
 
 # Simple intro for the app
