@@ -1,5 +1,4 @@
 # coding: utf-8
-import time
 
 from model.speakerModel import speakerModel
 from model.entities.speaker import Speaker
@@ -15,11 +14,10 @@ class speakerView():
         speakers = model.get_speakers()
         if speakers:
             for speaker in speakers:
-                print(speaker.firstname)
+                print(speaker)
         else:
             print("pas d'intervenants")
-        time.sleep(3)
-
+        input("Appuyez sur une touche pour continuer")
     def new_speaker(self):
         model = speakerModel()
         data = {}
@@ -30,4 +28,3 @@ class speakerView():
         speaker = Speaker(data)
         if model.add_speaker(speaker):
             print("Le nouvel intervenant a bien été enregistré")
-        time.sleep(3)

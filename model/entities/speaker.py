@@ -17,3 +17,7 @@ class Speaker():
         for key, value in data.items():
             if hasattr(self, key):
                 setattr(self, key, value)
+
+    def __str__(self):
+        return "~~~~~~~~~~~~~~~~~~~\nid: {}\nfirstname: {}\nlastname: {}\njob: {}\ndescription: {}\n".format(
+        self.id, self.firstname, self.lastname, self.job, self.description)

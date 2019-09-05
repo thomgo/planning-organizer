@@ -22,6 +22,7 @@ def speaker_actions():
             view.new_speaker()
         elif action == "s":
             pass
+        time.sleep(3)
 
 # Simple intro for the app
 os.system('cls' if os.name == 'nt' else 'clear')
