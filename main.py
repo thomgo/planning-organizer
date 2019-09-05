@@ -16,10 +16,11 @@ time.sleep(3)
 
 # The action the user wants to do, by default nothing
 action = ""
-view = conferenceView()
-view.home()
 # while the user does not chose to leave the program
 while action != 'q':
+    view = conferenceView()
+    view.home()
+    print("coucou")
     os.system('cls' if os.name == 'nt' else 'clear')
     action = input(": ")
 
