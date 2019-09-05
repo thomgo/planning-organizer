@@ -7,8 +7,8 @@ class connection():
     """Class to manage the connection and the cursor to a database"""
     # Store the username, the port and the database name as class attributs
     # In this case no host name and password because of my own configuration
-    USER = "thomas"
-    PORT = "5432"
+    USER = ""
+    PORT = ""
     DATABASE = ""
 
     def __init__(self):
