@@ -14,9 +14,11 @@ def speaker_actions():
     while action != "r":
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Gestion de la base intervants")
-        print("Que souhaitez vous faire ? (n: nouveau, s: suppression, r: retour)")
+        print("Que souhaitez vous faire ? (l: liste, n: nouveau, s: suppression, r: retour)")
         action = input(": ")
-        if action == "n":
+        if action == "l":
+            view.show_speakers()
+        elif action == "n":
             view.new_speaker()
         elif action == "s":
             pass

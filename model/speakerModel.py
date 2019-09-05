@@ -1,5 +1,6 @@
 # coding: utf-8
 from .connection import connection
+from .entities.speaker import Speaker
 
 class speakerModel():
     """Class to perform all queries related to the speaker table in the database"""
@@ -7,6 +8,15 @@ class speakerModel():
     def __init__(self):
         # Create a instance of the connection class to acces the database
         self.db = connection()
+
+    def get_speakers(self):
+        sql = """select id, firstname, lastname, job, description from speaker
+                 where is_active = true"""
+        speakers = self.db.make_request(sql)
+        for key, speaker in enumerate(speakers):
+            speakers[key] = Speaker(speaker)
+        return speakers
+
 
     def add_speaker(self, speaker):
         sql = """insert into speaker (firstname, lastname, job, description)

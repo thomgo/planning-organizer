@@ -35,11 +35,12 @@ class connection():
     def make_request(self, sql, arguments=False, message=False):
         try:
             self.initialize_connection()
-            result = self.cursor.execute(sql, arguments)
-            self.connection.commit()
-            if result:
-                return result
-            return True
+            self.cursor.execute(sql, arguments)
+            if sql.lower().startswith("select", 0):
+                return self.cursor.fetchall()
+            else:
+                self.connection.commit()
+                return True
         except Exception as e:
             if message:
                 print(message)

@@ -10,6 +10,16 @@ class speakerView():
     def __init__(self):
         pass
 
+    def show_speakers(self):
+        model = speakerModel()
+        speakers = model.get_speakers()
+        if speakers:
+            for speaker in speakers:
+                print(speaker.firstname)
+        else:
+            print("pas d'intervenants")
+        time.sleep(3)
+
     def new_speaker(self):
         model = speakerModel()
         data = {}
