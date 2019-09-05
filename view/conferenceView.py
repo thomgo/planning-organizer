@@ -18,6 +18,15 @@ class conferenceView():
 
     def new_conference(self):
         pass
+        # model = speakerModel()
+        # data = {}
+        # data["firstname"] = input("Prénom : ")
+        # data["lastname"] = input("Nom : ")
+        # data["job"] = input("Profession : ")
+        # data["description"] = input("Présentation : ")
+        # speaker = Speaker(data)
+        # if model.add_speaker(speaker):
+        #     print("Le nouvel intervenant a bien été enregistré")
 
     def delete_conference(self):
         pass

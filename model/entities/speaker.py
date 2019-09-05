@@ -1,10 +1,12 @@
 # coding: utf-8
 
-class Speaker():
+from .entity import Entity
+
+class Speaker(Entity):
     """Class representiong the user entity stored in database"""
 
     def __init__(self, data = False):
-        self.id = None
+        super().__init__()
         self.firstname = None
         self.lastname = None
         self.job = None
@@ -13,10 +15,6 @@ class Speaker():
         if data:
             self.hydrate(data)
 
-    def hydrate(self, data):
-        for key, value in data.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
 
     def __str__(self):
         return "~~~~~~~~~~~~~~~~~~~\nid: {}\nfirstname: {}\nlastname: {}\njob: {}\ndescription: {}\n".format(
