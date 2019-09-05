@@ -10,7 +10,7 @@ class conferenceView():
 
     def home(self):
         model = conferenceModel()
-        conferences = None
+        conferences = model.get_conferences()
         if conferences:
             print("Voici les conférence")
         else:

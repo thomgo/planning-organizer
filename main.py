@@ -19,9 +19,8 @@ action = ""
 # while the user does not chose to leave the program
 while action != 'q':
     view = conferenceView()
-    view.home()
-    print("coucou")
     os.system('cls' if os.name == 'nt' else 'clear')
+    view.home()
     action = input(": ")
 
 # Leave the program
