@@ -1,7 +1,7 @@
 # coding: utf-8
 from .connection import connection
 
-class speakerModel():
+class conferenceModel():
     """Class to perform all queries related to the conference table in the database"""
 
     def __init__(self):

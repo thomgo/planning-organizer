@@ -2,6 +2,7 @@
 import os
 import time
 from view.speakerView import speakerView
+from view.conferenceView import conferenceView
 
 # Main file acting like a routing system
 # Call the right method from the view, depending on user input
@@ -15,7 +16,8 @@ time.sleep(3)
 
 # The action the user wants to do, by default nothing
 action = ""
-
+view = conferenceView()
+view.home()
 # while the user does not chose to leave the program
 while action != 'q':
     os.system('cls' if os.name == 'nt' else 'clear')

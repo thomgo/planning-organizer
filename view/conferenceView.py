@@ -7,3 +7,11 @@ class conferenceView():
 
     def __init__(self):
         pass
+
+    def home(self):
+        model = conferenceModel()
+        conferences = None
+        if conferences:
+            print("Voici les conférence")
+        else:
+            print("Nous n'avons aucune conférence de prévue pour l'instant")
