@@ -31,3 +31,17 @@ class connection():
         if(self.connection):
             self.cursor.close()
             self.connection.close()
+
+    def make_request(self, sql, arguments=False, message=False):
+        try:
+            self.initialize_connection()
+            result = self.cursor.execute(sql, arguments)
+            self.connection.commit()
+            return result
+        except Exception as e:
+            if message:
+                print(message)
+            else:
+                print(e)
+        finally:
+            self.close_connection()
