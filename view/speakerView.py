@@ -1,6 +1,8 @@
 # coding: utf-8
+import time
 
 from model.speakerModel import speakerModel
+from model.entities.speaker import Speaker
 
 class speakerView():
     """View or controller taking care of all the logic related to speaker in the app."""
@@ -9,4 +11,13 @@ class speakerView():
         pass
 
     def new_speaker(self):
-        print("ok")
+        model = speakerModel()
+        data = {}
+        data["firstname"] = input("Prénom : ")
+        data["lastname"] = input("Nom : ")
+        data["job"] = input("Profession : ")
+        data["description"] = input("Présentation : ")
+        speaker = Speaker(data)
+        if model.add_speaker(speaker):
+            print("Le nouvel intervenant a bien été enregistré")
+        time.sleep(3)

@@ -1,6 +1,7 @@
 # coding: utf-8
 import os
 import time
+
 from view.speakerView import speakerView
 from view.conferenceView import conferenceView
 
@@ -8,6 +9,7 @@ from view.conferenceView import conferenceView
 # Call the right method from the view, depending on user input
 
 def speaker_actions():
+    view = speakerView()
     action = ""
     while action != "r":
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -15,7 +17,7 @@ def speaker_actions():
         print("Que souhaitez vous faire ? (n: nouveau, s: suppression, r: retour)")
         action = input(": ")
         if action == "n":
-            pass
+            view.new_speaker()
         elif action == "s":
             pass
 

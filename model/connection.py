@@ -37,11 +37,14 @@ class connection():
             self.initialize_connection()
             result = self.cursor.execute(sql, arguments)
             self.connection.commit()
-            return result
+            if result:
+                return result
+            return True
         except Exception as e:
             if message:
                 print(message)
             else:
                 print(e)
+            return False
         finally:
             self.close_connection()
