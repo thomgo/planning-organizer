@@ -1,6 +1,7 @@
 # coding: utf-8
 
 from model.conferenceModel import conferenceModel
+from model.entities.conference import Conference
 
 class conferenceView():
     """View or controller taking care of all the logic related to conference in the app."""
@@ -18,15 +19,17 @@ class conferenceView():
 
     def new_conference(self):
         pass
-        # model = speakerModel()
-        # data = {}
-        # data["firstname"] = input("Prénom : ")
-        # data["lastname"] = input("Nom : ")
-        # data["job"] = input("Profession : ")
-        # data["description"] = input("Présentation : ")
-        # speaker = Speaker(data)
-        # if model.add_speaker(speaker):
-        #     print("Le nouvel intervenant a bien été enregistré")
+        model = conferenceModel()
+        data = {}
+        data["title"] = input("Titre : ")
+        data["summary"] = input("Résumé : ")
+        data["event_date"] = input("Date : ")
+        data["event_time"] = input("Heure : ")
+        data["speaker"] = input("Intervenant : ")
+        conference = Conference(data)
+        print(conference)
+        # if model.add_conference(conference):
+        #     print("la conférence a bien été enregistrée")
 
     def delete_conference(self):
         pass

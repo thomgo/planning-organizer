@@ -1,11 +1,12 @@
 # coding: utf-8
+
 from .entity import Entity
 
-class Conference():
-    """Class representiong the conference entity stored in database"""
+class Conference(Entity):
+    """Class representing the conference entity stored in database"""
 
     def __init__(self, data=False):
-        super().init()
+        super().__init__()
         self.title = None
         self.summary = None
         self.event_date = None
