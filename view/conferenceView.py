@@ -23,13 +23,13 @@ class conferenceView():
         data = {}
         data["title"] = input("Titre : ")
         data["summary"] = input("Résumé : ")
-        data["event_date"] = input("Date : ")
-        data["event_time"] = input("Heure : ")
+        data["event_date"] = input("Date (jj/mm/aaaa): ")
+        data["event_time"] = input("Heure (hh:mm): ")
         data["speaker"] = input("Intervenant : ")
         conference = Conference(data)
         print(conference)
-        # if model.add_conference(conference):
-        #     print("la conférence a bien été enregistrée")
+        if model.add_conference(conference):
+            print("la conférence a bien été enregistrée")
 
     def delete_conference(self):
         pass

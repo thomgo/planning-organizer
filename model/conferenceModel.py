@@ -11,3 +11,10 @@ class conferenceModel():
     def get_conferences(self):
         sql ="select * from conference as c inner join speaker as s on s.id = c.speaker_id"
         return self.db.make_request(sql)
+
+    def add_conference(self, conference):
+        sql = """insert into conference(title, summary, event_date, registering_date, event_time, speaker_id)
+                 values(%s, %s, %s, now(), %s, %s)"""
+        arguments = (conference.title, conference.summary, conference.event_date, conference.event_time, conference.speaker)
+        # message=  "Nous n'avons pas pu enregistrer la conférence, un problème est survenu"
+        return self.db.make_request(sql, arguments=arguments)
