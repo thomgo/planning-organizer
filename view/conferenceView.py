@@ -13,9 +13,11 @@ class conferenceView():
         model = conferenceModel()
         conferences = model.get_conferences()
         if conferences:
-            print("Voici les conférence")
+            for conference in conferences:
+                print(conference)
         else:
             print("Nous n'avons aucune conférence de prévue pour l'instant")
+        input("Appuyez sur une touche pour continuer")
 
     def new_conference(self):
         pass
@@ -27,7 +29,6 @@ class conferenceView():
         data["event_time"] = input("Heure (hh:mm): ")
         data["speaker"] = input("Intervenant : ")
         conference = Conference(data)
-        print(conference)
         if model.add_conference(conference):
             print("la conférence a bien été enregistrée")
 

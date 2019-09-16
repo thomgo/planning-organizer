@@ -1,4 +1,5 @@
 # coding: utf-8
+import datetime
 
 from .entity import Entity
 
@@ -15,3 +16,7 @@ class Conference(Entity):
         self.speaker = None
         if data:
             self.hydrate(data)
+
+    def __str__(self):
+        return "~~~~~~~~~~~~~~~~~~~\nid: {}\ntitle: {}\nsummary: {}\ndate: {}\nhour: {}\n".format(
+        self.id, self.title, self.summary, self.event_date.strftime("%d/%m/%Y"), self.event_time.strftime("%H:%M"))
