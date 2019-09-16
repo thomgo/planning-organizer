@@ -25,8 +25,8 @@ class speakerModel():
         return self.db.make_request(sql, message=message, arguments=arguments)
 
     def delete_speaker(self, id):
-        sql = """ delete from speaker
-                  where id = %s"""
+        sql = """delete from speaker
+                 where id = %s"""
         arguments = (id,)
         message = "Un problème est survenu, nous n'arrivons pas à supprimer l'intervenant d'id {}".format(id)
         return self.db.make_request(sql, arguments=arguments, message=message)

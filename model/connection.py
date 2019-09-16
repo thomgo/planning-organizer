@@ -1,5 +1,4 @@
 # coding: utf-8
-
 import psycopg2
 import psycopg2.extras
 
@@ -38,9 +37,12 @@ class connection():
             self.cursor.execute(sql, arguments)
             if sql.lower().startswith("select", 0):
                 return self.cursor.fetchall()
-            else:
-                self.connection.commit()
-                return True
+            self.connection.commit()
+            if sql.lower().startswith("delete", 0):
+                if self.cursor.rowcount == 0:
+                    raise Exception("Nothing found")
+                return self.cursor.rowcount
+            return True
         except Exception as e:
             if message:
                 print(message)
