@@ -19,6 +19,7 @@ class conferenceModel():
         for key, value in enumerate(conferences):
             speaker = Speaker(value)
             conference = Conference(value)
+            conference.id = value[0]
             conference.speaker = speaker
             conferences[key] = conference
         return conferences
