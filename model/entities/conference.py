@@ -18,5 +18,11 @@ class Conference(Entity):
             self.hydrate(data)
 
     def __str__(self):
-        return "~~~~~~~~~~~~~~~~~~~\nid: {}\ntitle: {}\nsummary: {}\ndate: {}\nhour: {}\n".format(
-        self.id, self.title, self.summary, self.event_date.strftime("%d/%m/%Y"), self.event_time.strftime("%H:%M"))
+        return "~~~~~~~~~~~~~~~~~~~\nid: {}\ntitle: {}\nsummary: {}\ndate: {}\nhour: {}\nspeaker: {}\n".format(
+            self.id,
+            self.title,
+            self.summary,
+            self.event_date.strftime("%d/%m/%Y"),
+            self.event_time.strftime("%H:%M"),
+            self.speaker.firstname + " " + self.speaker.lastname
+        )

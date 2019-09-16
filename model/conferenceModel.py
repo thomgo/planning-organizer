@@ -1,6 +1,7 @@
 # coding: utf-8
 from .connection import connection
 from .entities.conference import Conference
+from .entities.speaker import Speaker
 
 class conferenceModel():
     """Class to perform all queries related to the conference table in the database"""
@@ -12,8 +13,11 @@ class conferenceModel():
     def get_conferences(self):
         sql ="select * from conference as c inner join speaker as s on s.id = c.speaker_id"
         conferences = self.db.make_request(sql)
-        for key, conference in enumerate(conferences):
-            conferences[key] = Conference(conference)
+        for key, value in enumerate(conferences):
+            speaker = Speaker(value)
+            conference = Conference(value)
+            conference.speaker = speaker
+            conferences[key] = conference
         return conferences
 
     def add_conference(self, conference):
