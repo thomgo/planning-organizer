@@ -20,7 +20,6 @@ class conferenceView():
         input("Appuyez sur une touche pour continuer")
 
     def new_conference(self):
-        pass
         model = conferenceModel()
         data = {}
         data["title"] = input("Titre : ")
@@ -33,4 +32,7 @@ class conferenceView():
             print("la conférence a bien été enregistrée")
 
     def delete_conference(self):
-        pass
+        model = conferenceModel()
+        id = input("L'id de la conférence à annuler : ")
+        if model.delete_conference(id):
+            print("La conférence a bien été supprimée")

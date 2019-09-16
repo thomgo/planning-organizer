@@ -29,3 +29,10 @@ class conferenceModel():
         arguments = (conference.title, conference.summary, conference.event_date, conference.event_time, conference.speaker)
         # message=  "Nous n'avons pas pu enregistrer la conférence, un problème est survenu"
         return self.db.make_request(sql, arguments=arguments)
+
+    def delete_conference(self, id):
+        sql = """delete from conference
+                 where id = %s"""
+        arguments = (id,)
+        message = "Un problème est survenu, nous n'arrivons pas à supprimer la conférence d'id {}".format(id)
+        return self.db.make_request(sql, arguments=arguments, message=message)
