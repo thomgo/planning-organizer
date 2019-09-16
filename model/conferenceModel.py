@@ -11,7 +11,10 @@ class conferenceModel():
         self.db = connection()
 
     def get_conferences(self):
-        sql ="select * from conference as c inner join speaker as s on s.id = c.speaker_id"
+        sql ="""select * from conference as c
+                inner join speaker as s
+                on s.id = c.speaker_id
+                order by c.event_date, c.event_time"""
         conferences = self.db.make_request(sql)
         for key, value in enumerate(conferences):
             speaker = Speaker(value)

@@ -27,7 +27,7 @@ class conferenceView():
         data["summary"] = input("Résumé : ")
         data["event_date"] = input("Date (jj/mm/aaaa): ")
         data["event_time"] = input("Heure (hh:mm): ")
-        data["speaker"] = input("Intervenant : ")
+        data["speaker"] = input("Id de l'intervenant : ")
         conference = Conference(data)
         if model.add_conference(conference):
             print("la conférence a bien été enregistrée")
