@@ -5,15 +5,15 @@ from model.entities.speaker import Speaker
 
 class speakerView():
     """View or controller taking care of all the logic related to speaker in the app."""
+    model = speakerModel()
 
     def __init__(self):
         pass
 
     def show_speakers(self):
         """Display all the speakers from database to the screen"""
-        model = speakerModel()
         # retrieve speakers from database
-        speakers = model.get_speakers()
+        speakers = speakerView.model.get_speakers()
         # if we have speakers we show them in a loop
         if speakers:
             for speaker in speakers:
@@ -25,7 +25,6 @@ class speakerView():
 
     def new_speaker(self):
         """Displays inputs to register a new speaker in the database"""
-        model = speakerModel()
         # start an empty dictionnary to hold speaker's information
         data = {}
         data["firstname"] = input("Prénom : ")
@@ -35,13 +34,12 @@ class speakerView():
         # instanciate a speaker with the info
         speaker = Speaker(data)
         # if the registering is succesfull print a success message
-        if model.add_speaker(speaker):
+        if speakerView.model.add_speaker(speaker):
             print("Le nouvel intervenant a bien été enregistré")
 
     def delete_speaker(self):
         """Display an input to delete a speaker from database by his ID"""
-        model = speakerModel()
         id = input("L'id de l'intervenant à supprimer : ")
         # if the delete is succesfull print a success message
-        if model.delete_speaker(id):
+        if speakerView.model.delete_speaker(id):
             print("L'intervenant a bien été supprimé")
