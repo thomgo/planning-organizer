@@ -9,6 +9,8 @@ from view.conferenceView import conferenceView
 # Call the right method from the view, depending on user input
 
 def speaker_actions():
+    """Show the different actions relate to speakear entity"""
+    # instanciate the view with the methods holding the code logic
     view = speakerView()
     action = ""
     while action != "r":
@@ -16,6 +18,7 @@ def speaker_actions():
         print("Gestion de la base intervants")
         print("Que souhaitez vous faire ? (l: liste, n: nouveau, s: suppression, r: retour)")
         action = input(": ")
+        # call the right method from the view according to user input
         if action == "l":
             view.show_speakers()
         elif action == "n":
@@ -25,6 +28,8 @@ def speaker_actions():
         time.sleep(3)
 
 def conference_actions():
+    """Show the different actions relate to conference entity"""
+    # instanciate the view with the methods holding the code logic
     view = conferenceView()
     action = ""
     while action != "r":
@@ -32,6 +37,7 @@ def conference_actions():
         print("Gestion des interventions au programme")
         print("Que souhaitez vous faire ? (l: liste, n: nouvelle, s: suppression, r: retour)")
         action = input(": ")
+        # call the right method from the view according to user input
         if action == "l":
             view.show_conferences()
         elif action == "n":
@@ -54,6 +60,7 @@ while action != 'q':
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Que souhaitez vous gérez ? (c: conférences, i: intervenants, q: quitter)")
     action = input(": ")
+    # call the right action function according to user input
     if action == "c":
         conference_actions()
     elif action == "i":
